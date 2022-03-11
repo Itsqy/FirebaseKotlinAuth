@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="28dp"
     android:background="@color/design_default_color_secondary"
+    android:padding="28dp"
     tools:context=".LoginActivity">
 
     <LinearLayout
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -16,11 +17,12 @@
         android:padding="20dp">
 
         <TextView
-            android:textColor="@color/design_default_color_secondary"
+            android:id="@+id/tv_judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
             android:textAlignment="center"
+            android:textColor="@color/design_default_color_secondary"
             android:textSize="23sp"
             android:textStyle="bold" />
 
@@ -38,25 +40,26 @@
             android:inputType="textPassword" />
 
         <TextView
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            android:text="Lupas password"/>
+            android:layout_marginTop="8dp"
+            android:text="Lupas password"
+            android:id="@+id/lupa_pass"
+            android:textAlignment="textEnd" />
 
         <Button
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Login"
-            android:id="@+id/btn_login"
-            android:backgroundTint="@color/design_default_color_secondary"/>
+            android:backgroundTint="@color/design_default_color_secondary"
+            android:hint="Login" />
 
         <TextView
             android:id="@+id/tv_to_regis"
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Klik disini \n jika  belum punya akun? "/>
+            android:layout_marginTop="8dp"
+            android:text="Klik disini \n jika  belum punya akun? "
+            android:textAlignment="center" />
     </LinearLayout>
 </RelativeLayout>

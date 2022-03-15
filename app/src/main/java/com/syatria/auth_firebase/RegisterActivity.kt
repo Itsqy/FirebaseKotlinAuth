@@ -45,7 +45,7 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             if (password.length < 6) {
-                binding.edtPassword.error = "Password Minila 6 karakter!"
+                binding.edtPassword.error = "Password Minimal 6 karakter!"
                 binding.edtPassword.requestFocus()
                 return@setOnClickListener
             }
@@ -60,13 +60,44 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        if (auth.currentUser != null) {
+            Intent(this, HomeActivity::class.java).also { intent ->
+                Toast.makeText(this, "Welcome ${FirebaseAuth.getInstance().currentUser!!.email}", Toast.LENGTH_SHORT).show()
+                intent.flags =
+                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                startActivity(intent)
+
+
+            }
+        }
+    }
+
     private fun daftarUserFirebase(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
 
-                    Toast.makeText(this, "$email Register successful Guyss !!", Toast.LENGTH_SHORT)
-                        .show()
+//                    val i = Intent(this, MainActivity::class.java)
+//                    startActivity(i)
+//                    finish()
+
+                    Intent(this, HomeActivity::class.java).also { intent ->
+
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                        startActivity(intent)
+
+
+
+                    }
+
+//                    Toast.makeText(this, "$email Register successful Guyss !!", Toast.LENGTH_SHORT)
+//                        .show()
+
                 } else {
                     Toast.makeText(this, " ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }

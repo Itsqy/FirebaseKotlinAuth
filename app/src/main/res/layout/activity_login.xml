@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/design_default_color_secondary"
     android:padding="28dp"
     tools:context=".LoginActivity">
@@ -46,9 +47,18 @@
             android:text="Lupas password"
             android:id="@+id/lupa_pass"
             android:textAlignment="textEnd" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:id="@+id/water"
+            app:lottie_rawRes="@raw/water_splash"
+            />
 
         <Button
             android:id="@+id/btn_login"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/design_default_color_secondary"
